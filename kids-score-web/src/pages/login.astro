@@ -1,0 +1,17 @@
+---
+import { User } from "../api/user";
+import Layout from "../layouts/Layout.astro";
+import LoginForm from "../components/LoginForm.vue";
+const user = new User();
+
+let identifier: string;
+let password: string;
+
+const login = () => {};
+---
+
+<Layout title="Login">
+  <div class="flex justify-center">
+    <LoginForm client:load />
+  </div>
+</Layout>

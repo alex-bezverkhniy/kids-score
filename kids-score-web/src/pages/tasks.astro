@@ -1,0 +1,90 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+import { Task, TaskScore, TaskStatus, Score } from "../common/types";
+import { log } from "astro/dist/core/logger/core";
+
+const STRAPI_URL = import.meta.env.PUBLIC_STRAPI_URL;
+
+const pageTitle = "Tasks";
+const kidName = "Eva";
+const scoreKey = "2022-10-31";
+
+const tasks = await fetch(`${STRAPI_URL}/api/tasks?populate=img`)
+  .then((res) => res.json())
+  .then((resp) => {
+    const tasks = resp.data.map((d) => {
+      return new Task({
+        id: d.id,
+        title: d.attributes.title,
+        desc: d.attributes.desc,
+        imgUrl: `${STRAPI_URL}${d.attributes.img.data.attributes.url}`,
+      });
+    });
+    // console.log(tasks);
+    return tasks;
+  });
+
+const scores = await fetch(
+  `${STRAPI_URL}/api/scores?filters=[kid][username][$eq]=${kidName}&populate[0]=task`
+)
+  .then((res) => res.json())
+  .then((resp) => {
+    const scores = resp.data.map((s) => {
+      return new Score({
+        key: scoreKey,
+        id: s.id,
+        points: s.attributes.points,
+        taskId: s.attributes.task.data.id,
+      });
+    });
+    return scores;
+  });
+
+const taskScoreData = tasks.map((task) => {
+  const score = scores?.find((s) => s.taskId == task.id);
+  console.log("score", score);
+
+  const ts = new TaskScore({
+    id: task.id,
+    title: task.title,
+    desc: task.desc,
+    imgUrl: task.imgUrl,
+    status: score?.points > 0 ? TaskStatus.Completed : TaskStatus.NotStarted,
+    points: score?.points,
+  });
+  console.log(ts);
+
+  return ts;
+});
+
+// const tasks = [
+//   new Task({
+//     id: 1,
+//     title: "Read every day",
+//     imgUrl: "https://media.giphy.com/media/WoWm8YzFQJg5i/giphy.gif",
+//     status: TaskStatus.NotStarted,
+//   }),
+//   new Task({
+//     id: 2,
+//     title: "Clean up toys",
+//     imgUrl: "https://media.giphy.com/media/10zsjaH4g0GgmY/giphy.gif",
+//     status: TaskStatus.NotStarted,
+//   }),
+//   new Task({
+//     id: 3,
+//     title: "Do math",
+//     imgUrl: "https://media.giphy.com/media/lvzdeWk12qjmM/giphy.gif",
+//     status: TaskStatus.NotStarted,
+//   }),
+// ];
+---
+
+<Layout title={pageTitle}>
+  <h1 class="text-4xl font-bold text-center text-orange-500 mb-5">
+    {pageTitle}
+  </h1>
+  <div class="flex flex-wrap gap-5">
+    {taskScoreData.map((task) => <Card data={task} />)}
+  </div>
+</Layout>

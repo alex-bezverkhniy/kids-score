@@ -1,0 +1,85 @@
+<script lang="ts" setup>
+import { userStore } from "../api/user"
+
+const currentDayDate = new Date().getDate();
+</script>
+<template>
+    <nav class="flex flex-wrap items-center justify-between w-full py-4 md:py-0 px-4 text-lg text-gray-700 bg-white">
+        <div class="md:flex md:items-center md:w-auto">
+            <a href="#">
+                <!--?xml version="1.0" encoding="UTF-8" standalone="no" ?-->
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                    width="180" height="48" viewBox="20 0 180 64" xml:space="preserve">
+                    <desc>Created with Fabric.js 4.6.0</desc>
+                    <defs> </defs>
+                    <g transform="matrix(0.72 0 0 0.72 31.43 34.84)" id="pRAdlBFOrbOGy5gou7xzx">
+                        <path
+                            style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(179,181,179); fill-rule: nonzero; opacity: 1;"
+                            vector-effect="non-scaling-stroke" transform=" translate(-40, -43.95)"
+                            d="M 70.1 8.6 L 66.19999999999999 8.6 L 66.19999999999999 10.6 C 66.19999999999999 13.899999999999999 63.499999999999986 16.6 60.19999999999999 16.6 C 56.89999999999999 16.6 54.19999999999999 13.900000000000002 54.19999999999999 10.600000000000001 L 54.19999999999999 8.600000000000001 L 46 8.600000000000001 L 46 10.600000000000001 C 46 13.900000000000002 43.3 16.6 40 16.6 C 36.7 16.6 34 13.900000000000002 34 10.600000000000001 L 34 8.600000000000001 L 25.7 8.600000000000001 L 25.7 10.600000000000001 C 25.7 13.900000000000002 23 16.6 19.7 16.6 C 16.4 16.6 13.7 13.900000000000002 13.7 10.600000000000001 L 13.7 8.600000000000001 L 9.9 8.600000000000001 C 4.4 8.6 0 13.1 0 18.5 L 0 69.4 C 0 74.9 4.4 79.30000000000001 9.9 79.30000000000001 L 70.10000000000001 79.30000000000001 C 75.60000000000001 79.30000000000001 80.00000000000001 74.9 80.00000000000001 69.4 L 80.00000000000001 18.5 C 80 13.1 75.6 8.6 70.1 8.6 z"
+                            stroke-linecap="round"></path>
+                    </g>
+                    <g transform="matrix(0.72 0 0 0.72 31.43 38.41)" id="Ljmxi4ru0R_0wa1nJQ64y">
+                        <path
+                            style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255,255,255); fill-rule: nonzero; opacity: 1;"
+                            vector-effect="non-scaling-stroke" transform=" translate(-40, -48.9)"
+                            d="M 70.1 24.1 L 9.9 24.1 C 7.5 24.1 5.6000000000000005 26 5.6000000000000005 28.400000000000002 L 5.6000000000000005 69.4 C 5.6000000000000005 71.80000000000001 7.5 73.7 9.9 73.7 L 70.10000000000001 73.7 C 72.50000000000001 73.7 74.4 71.8 74.4 69.4 L 74.4 69.4 L 74.4 28.400000000000006 C 74.4 26 72.5 24.1 70.1 24.1 z"
+                            stroke-linecap="round"></path>
+                    </g>
+                    <g transform="matrix(1 0 0 1 31.43 38.41)" style="" id="XsY5qlySpqmvFDC42-EOi">
+                        <text x="-12" y="8" xml:space="preserve"
+                            font-family="ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont" font-size="23"
+                            font-style="normal" font-weight="700" letter-spacing="0.046" line-height="1"
+                            style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(252,134,29); fill-rule: nonzero; opacity: 1; white-space: pre;">{{
+                                    currentDayDate
+                                    || ":)"
+                            }}
+                        </text>
+                        <text x="40" y="8" xml:space="preserve"
+                            font-family="ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont" font-size="23"
+                            font-style="normal" font-weight="700" letter-spacing="0.046" line-height="1"
+                            style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(252,134,29); fill-rule: nonzero; opacity: 1; white-space: pre;">Kid's
+                            Score
+                        </text>
+                    </g>
+                    <g transform="matrix(0.72 0 0 0.72 31.47 8.53)" id="xUNhc1nPZaXPDH93R_epP">
+                        <path
+                            style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(252,134,29); fill-rule: nonzero; opacity: 1;"
+                            vector-effect="non-scaling-stroke" transform=" translate(-40.05, -7.4)"
+                            d="M 56.8 10.6 L 56.8 4.2 C 56.8 2.3000000000000003 58.3 0.7000000000000002 60.3 0.7000000000000002 C 62.3 0.7000000000000002 63.8 2.2 63.8 4.2 L 63.8 10.600000000000001 C 63.8 12.500000000000002 62.3 14.100000000000001 60.3 14.100000000000001 C 58.3 14.100000000000001 56.8 12.5 56.8 10.6 z M 40 14.1 C 41.9 14.1 43.5 12.6 43.5 10.6 L 43.5 4.2 C 43.5 2.3000000000000003 42 0.7000000000000002 40 0.7000000000000002 C 38 0.7000000000000002 36.5 2.2 36.5 4.2 L 36.5 10.600000000000001 C 36.5 12.5 38.1 14.1 40 14.1 z M 19.8 14.1 C 21.7 14.1 23.3 12.6 23.3 10.6 L 23.3 4.2 C 23.3 2.3000000000000003 21.8 0.7000000000000002 19.8 0.7000000000000002 C 17.8 0.7000000000000002 16.3 2.2 16.3 4.2 L 16.3 10.600000000000001 C 16.3 12.5 17.8 14.1 19.8 14.1 z"
+                            stroke-linecap="round"></path>
+                    </g>
+                </svg>
+            </a>
+        </div>
+        <!-- Menu btn -->
+        <svg xmlns="http://www.w3.org/2000/svg" id="menu-button" class="h-6 w-6 cursor-pointer md:hidden block"
+            fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+
+        <div class="hidden w-full md:flex md:items-center md:w-auto" id="menu">
+            <ul class="pt-4 text-base text-gray-700 md:flex md:justify-between md:pt-0">
+                <li>
+                    <a class="md:p-4 py-2 block hover:text-orange-400" href="/tasks">Tasks</a>
+                </li>
+                <li>
+                    <a class="md:p-4 py-2 block hover:text-orange-400" href="#">Score</a>
+                </li>
+
+                <li v-if="userStore.get() == null">
+                    <a class="md:p-4 py-2 block hover:text-orange-400 text-orange-500" href="#">Sign Up</a>
+                </li>
+                <li v-if="userStore.get() == null">
+                    <a class="md:p-4 py-2 block hover:text-orange-400 text-orange-500" href="/login">Login</a>
+                </li>
+                <li>
+                    <a 
+                        href="/profile" title="User Profile">
+                        <span class="rounded-full block px-3 py-1 my-1 md:my-3 hover:bg-orange-400 bg-orange-500 text-white text-center">{{ userStore.get().username[0] }}
+                        </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</template>

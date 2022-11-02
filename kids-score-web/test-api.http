@@ -1,0 +1,37 @@
+### Get all tasks
+
+GET http://localhost:1337/api/tasks
+
+### Get all tasks with img
+
+GET http://localhost:1337/api/tasks?populate=img
+
+
+### Get all scores
+
+GET http://localhost:1337/api/scores?populate[0]=task&populate[1]=kid
+
+
+### Get all scores for Eva
+
+GET http://localhost:1337/api/scores?filters=[kid][username][$eq]=Eva&populate[0]=task&populate[1]=kid
+
+
+### Get User by ID
+
+GET http://localhost:1337/api/users/1?populate[0]=role
+
+
+### Get User by email
+
+GET http://localhost:1337/api/users?filters=[email][$eq]=eva@astrokids.com&populate[0]=role
+
+### LogIn
+
+POST http://localhost:1337/api/auth/local
+Content-Type: application/json
+
+{
+  "identifier": "eva@astrokids.com",
+  "password": "1Q2w3e4r"
+}

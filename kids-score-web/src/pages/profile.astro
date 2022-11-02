@@ -1,0 +1,12 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { userStore } from "../api/user";
+---
+
+<Layout title="User profile">
+  <ul>
+    <li><b>username:</b> {userStore.get().username}</li>
+    <li><b>email:</b> {userStore.get().email}</li>
+    <li><b>role:</b> {userStore.get().role}</li>
+  </ul>
+</Layout>
