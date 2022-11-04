@@ -3,17 +3,13 @@
   "version": "1.0.0",
   "description": "Kid's Score dashboard",
   "scripts": {
-    "api:dev": "yarn run develop --cwd ./kids-score-api",
+    "api:dev": "yarn --cwd ./kids-score-api run develop",
     "api:start": "strapi start",
     "api:build": "strapi build",
     "web:dev": "astro dev",
     "web:start": "astro dev",
     "web:build": "astro build"
   },
-  "devDependencies": {
-    "@strapi/strapi": "4.4.5"
-  },
-  "workspaces": ["kids-score-web", "kids-score-api"],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/alex-bezverkhniy/kids-score.git"
