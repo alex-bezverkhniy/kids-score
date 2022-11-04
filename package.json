@@ -4,11 +4,12 @@
   "description": "Kid's Score dashboard",
   "scripts": {
     "api:dev": "yarn --cwd ./kids-score-api run develop",
-    "api:start": "strapi start",
-    "api:build": "strapi build",
-    "web:dev": "astro dev",
-    "web:start": "astro dev",
-    "web:build": "astro build"
+    "api:start": "yarn --cwd ./kids-score-api run start",
+    "api:build": "yarn --cwd ./kids-score-api run build",
+    
+    "web:dev": "astro --cwd ./kids-score-web dev",
+    "web:start": "astro --cwd ./kids-score-web dev",
+    "web:build": "astro --cwd ./kids-score-web build"
   },
   "repository": {
     "type": "git",
