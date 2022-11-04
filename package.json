@@ -2,26 +2,20 @@
   "name": "kids-score",
   "version": "1.0.0",
   "description": "Kid's Score dashboard",
-  "workspaces": [
-    "./kids-score-api",  
-    "./kids-score-web"
-  ],
   "scripts": {
-    "api:dev": "strapi develop",
-    "api:start": "strapi start",
-    "api:build": "strapi build",
-    "web:dev": "astro dev",
-    "web:start": "astro dev",
-    "web:build": "astro build"
+    "api:dev": "yarn --cwd ./kids-score-api run develop",
+    "api:start": "yarn --cwd ./kids-score-api run start",
+    "api:build": "yarn --cwd ./kids-score-api run build",
+    
+    "web:dev": "astro --cwd ./kids-score-web dev",
+    "web:start": "astro --cwd ./kids-score-web dev",
+    "web:build": "astro --cwd ./kids-score-web build"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/alex-bezverkhniy/kids-score.git"
   },
-  "keywords": [
-    "kids's",
-    "score"
-  ],
+  "keywords": ["kids's", "score"],
   "author": "Alex Bezverkhniy",
   "license": "ISC",
   "bugs": {
